@@ -985,7 +985,20 @@ function bancheck(token, channelid) {
                         chalk.magenta(" [Main Token]") +
                         chalk.red(" Chat Captcha! ❌")
                 );
-                process.exit(0);
+                const onMessage = (message) => {
+    if (message.content === "Beep Boop.") {
+        rpc.updateStatus({
+            state: "Waiting...",
+            details: "Waiting for 360 seconds...",
+        });
+        setTimeout(() => {
+            rpc.updateStatus({
+                state: "Ready",
+                details: "Ready to chat!",
+            });
+        }, 360000);
+    }
+};
             } else {
                 global.mainbanc = true;
                 elaina2(token, channelid);
@@ -1075,7 +1088,20 @@ function dmbancheck(token, channelid) {
                             chalk.magenta(" [Main Token]") +
                             chalk.red(" DM Captcha! ❌")
                     );
-                    process.exit(0);
+                    const onMessage = (message) => {
+    if (message.content === "Beep Boop.") {
+        rpc.updateStatus({
+            state: "Waiting...",
+            details: "Waiting for 360 seconds...",
+        });
+        setTimeout(() => {
+            rpc.updateStatus({
+                state: "Ready",
+                details: "Ready to chat!",
+            });
+        }, 360000);
+    }
+};
                 } else {
                     global.mainbanc = true;
                     console.log(
