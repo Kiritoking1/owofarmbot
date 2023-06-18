@@ -986,19 +986,20 @@ function bancheck(token, channelid) {
                         chalk.red(" Chat Captcha! ❌")
                 );
                 const onMessage = (message) => {
-    if (message.content === "Beep Boop.") {
-        rpc.updateStatus({
-            state: "Waiting...",
-            details: "Waiting for 360 seconds...",
-        });
-        setTimeout(() => {
-            rpc.updateStatus({
-                state: "Ready",
-                details: "Ready to chat!",
-            });
-        }, 360000);
-    }
-};
+                    if (message.content === "Beep Boop.") {
+                        rpc.updateStatus({
+                            state: "Waiting...",
+                            details: "Waiting for 60 seconds...",
+                        });
+
+                        setTimeout(() => {
+                            rpc.updateStatus({
+                                state: "Ready",
+                                details: "Ready to chat!",
+                            });
+                        }, 60000);
+                    }
+                };
             } else {
                 global.mainbanc = true;
                 elaina2(token, channelid);
@@ -1011,7 +1012,7 @@ function bancheck(token, channelid) {
                 );
                 setTimeout(() => {
                     sleepy("Main");
-                }, 5000);
+                }, 60000);
             }
         }
     );
@@ -1038,10 +1039,25 @@ function extrabancheck(token, channelid) {
                     chalk.red(
                         `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
                     ) +
-                        chalk.magenta(" [Extra Token]") +
-                        chalk.red(" Chat Captcha! ❌")
+                    chalk.magenta(" [Extra Token]") +
+                    chalk.red(" Chat Captcha! ❌")
                 );
-                process.exit(0);
+                const onMessage = (message) => {
+                    if (message.content === "Beep Boop.") {
+                        rpc.updateStatus({
+                            state: "Waiting...",
+                            details: "Waiting for 60 seconds...",
+                        });
+
+                        setTimeout(() => {
+                            rpc.updateStatus({
+                                state: "Ready",
+                                details: "Ready to chat!",
+                            });
+                        }, 60000);
+                    }
+                };
+                
             } else {
                 global.extrabanc = true;
                 elaina2(token, channelid);
@@ -1049,8 +1065,8 @@ function extrabancheck(token, channelid) {
                     chalk.red(
                         `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
                     ) +
-                        chalk.magenta(" [Extra Token]") +
-                        chalk.green(" Chat Captcha Checked ✅")
+                    chalk.magenta(" [Extra Token]") +
+                    chalk.green(" Chat Captcha Checked ✅")
                 );
                 setTimeout(() => {
                     sleepy("Extra");
@@ -1059,6 +1075,7 @@ function extrabancheck(token, channelid) {
         }
     );
 }
+
 
 function dmbancheck(token, channelid) {
     request.get(
@@ -1089,19 +1106,20 @@ function dmbancheck(token, channelid) {
                             chalk.red(" DM Captcha! ❌")
                     );
                     const onMessage = (message) => {
-    if (message.content === "Beep Boop.") {
-        rpc.updateStatus({
-            state: "Waiting...",
-            details: "Waiting for 360 seconds...",
-        });
-        setTimeout(() => {
-            rpc.updateStatus({
-                state: "Ready",
-                details: "Ready to chat!",
-            });
-        }, 360000);
-    }
-};
+                        if (message.content === "Beep Boop.") {
+                            rpc.updateStatus({
+                                state: "Waiting...",
+                                details: "Waiting for 60 seconds...",
+                            });
+
+                            setTimeout(() => {
+                                rpc.updateStatus({
+                                    state: "Ready",
+                                    details: "Ready to chat!",
+                                });
+                            }, 60000);
+                        }
+                    };
                 } else {
                     global.mainbanc = true;
                     console.log(
@@ -1148,7 +1166,21 @@ function dmextrabancheck(token, channelid) {
                             chalk.magenta(" [Extra Token]") +
                             chalk.red(" DM Captcha! ❌")
                     );
-                    process.exit(0);
+                    const onMessage = (message) => {
+                        if (message.content === "Beep Boop.") {
+                            rpc.updateStatus({
+                                state: "Waiting...",
+                                details: "Waiting for 60 seconds...",
+                            });
+
+                            setTimeout(() => {
+                                rpc.updateStatus({
+                                    state: "Ready",
+                                    details: "Ready to chat!",
+                                });
+                            }, 60000);
+                        }
+                    };
                 } else {
                     global.extrabanc = true;
                     console.log(
@@ -1156,7 +1188,7 @@ function dmextrabancheck(token, channelid) {
                             `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
                         ) +
                             chalk.magenta(" [Extra Token]") +
-                            chalk.green(" DM Captcha Checked ✅")
+                            chalk.green(" DM catcha Checked ✅")
                     );
                     setTimeout(() => {
                         sleepy("Extra");
